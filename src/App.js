@@ -1,24 +1,22 @@
-import logo from './logo.svg';
+// src/App.js
+
+import React from 'react';
+import { Provider } from 'react-redux';
+import store from '../src/redux/store';
+import AddTodo from '../src/View/AddToDo/AddTodo'; // Corrected import path
+import TodoList from '../src/View/ToDoList/ToDoList'; // Corrected import path
 import './App.css';
 
+// Main application component
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Provider store={store}>
+      <div className="App">
+        <h1>Todo List</h1>
+        <AddTodo />
+        <TodoList />
+      </div>
+    </Provider>
   );
 }
 
